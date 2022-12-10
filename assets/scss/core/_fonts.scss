@@ -1,15 +1,13 @@
 //------------------------------------------------
 //font-face
 //------------------------------------------------
-// Font
-/* Example
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
 @include font-face(
-    "name_font", "path_font",
-    weight_font, style_font,
+    "Bebas Neue", "../fonts/bebas_neue/bebas_neue_book",
+    400, normal,
     woff2 woff ttf
 );
-*/
-
 
 //------------------------------------------------
 //End font-face

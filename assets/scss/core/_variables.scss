@@ -6,6 +6,15 @@ $c0: transparent;
 $c1: #FFF;
 $c2: #000;
 
+$c3: #2B2A30;
+$c4: #3A393F;
+$c5: #17171A;
+
+$sha1: inset 0px 0px 114px rgba($c2, 0.45);
+$sha2: -4px 2px 30px 3px $c2;
+$sha3: 0px -10px 20px 12px rgba($c1, 0.17);
+
+$grad1: 71.4% 71.4% at 51.7% 28.6%, $c4 0%, $c5 100%, $c5 100%;
 // Font
 $f1: "sans-serif";
 

@@ -8,10 +8,27 @@
 @import "mixin";
 @import "silent_class";
 
-body {
+.pomodoro_page {
     @include scroll;
     @include font(100%);
     @include no-margins;
     @include no-border;
-    background-color: $c1;
+    @include bc($c3, $c1);
+}
+
+.container_pomodoro {
+    @include center-flex-column;
+    @include wh(100vw, 100vh);
+    @include user-select;
+
+    .pomodoro {
+        @include border-radius(50%);
+        @include whs(min(80vw, 500px));
+        @include box-shadow((
+            $sha1,
+            $sha2,
+            $sha3
+        ));
+        background-image: radial-gradient($grad1);
+    }
 }

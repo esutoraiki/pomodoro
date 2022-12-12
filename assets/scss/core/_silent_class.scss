@@ -1,6 +1,13 @@
 //-----------------------------------
 // Silent Class
 //-----------------------------------
+%txt1 {
+    @include font(szrem(196), $f1, 400);
+
+    @include brp($b7) {
+        font-size: clamp(szrem(114), 25.52vw, szrem(196));
+    }
+}
 
 //-----------------------------------
 // END Silent Class

@@ -1,2 +1,12 @@
 @import "instance";
 
+.gear {
+    &:before {
+        @include icon_svg(
+            gear,
+            $v3, $v3,
+            $c7
+        );
+        content: "";
+    }
+}

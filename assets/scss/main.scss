@@ -9,7 +9,10 @@
 @import "silent_class";
 
 .pomodoro_page {
-    @include scroll;
+    @include scroll((
+        bg: $c0,
+        color: $c6
+    ));
     @include font(100%);
     @include no-margins;
     @include no-border;
@@ -18,17 +21,64 @@
 
 .container_pomodoro {
     @include center-flex-column;
-    @include wh(100vw, 100vh);
+    @include wh(100vw, max(calc(100vh - 90px), 500px));
     @include user-select;
+    margin: 45px auto;
+
+    @include brp($b7) {
+        margin: $v1 auto;
+        height: calc(100vh - $v2);
+    }
 
     .pomodoro {
+        @include center-flex-column;
         @include border-radius(50%);
         @include whs(min(80vw, 500px));
+        @include position;
         @include box-shadow((
             $sha1,
             $sha2,
             $sha3
         ));
         background-image: radial-gradient($grad1);
+
+        .timer {
+            @include center-flex-row;
+            @include gap(5px);
+
+            .minutes { @extend %txt1; }
+            .separator { @extend %txt1; }
+            .seconds { @extend %txt1; }
+        }
+
+        .container_buttons {
+            @include position(absolute, 60px, 50%, bottom);
+            @include transform(translateX(-50%));
+            @include align-items(center);
+            @include flex-direction(column);
+            @include gap(20px);
+            @include flex;
+
+            .start_stop {
+                all: initial;
+                @include font(
+                    szrem(15),
+                    $f2,
+                    700
+                );
+                @include text(center, uppercase);
+                letter-spacing: 0.5rem;
+                cursor: pointer;
+                color: $c1;
+            }
+
+            .setting {
+                all: initial;
+                @include ht;
+                @include position;
+                @include whs($v3);
+                cursor: pointer;
+            }
+        }
     }
 }

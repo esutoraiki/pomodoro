@@ -2,7 +2,11 @@
 // Silent Class
 //-----------------------------------
 %txt1 {
-    @include font(szrem(196), $f1, 400);
+    @include font(szrem(196), $f1, 400, normal, 0.9);
+
+    &[contenteditable="true"] {
+        border-bottom: 1px dashed $c1;
+    }
 
     @include brp($b7) {
         font-size: clamp(szrem(114), 25.52vw, szrem(196));

@@ -41,14 +41,23 @@
             $sha3
         ));
         background-image: radial-gradient($grad1);
+        overflow: hidden;
 
         .timer {
             @include center-flex-row;
             @include gap(5px);
 
-            .minutes { @extend %txt1; }
+            .minutes {
+                @extend %txt1;
+                padding-left: 5px;
+            }
+
             .separator { @extend %txt1; }
-            .seconds { @extend %txt1; }
+
+            .seconds {
+                @extend %txt1;
+                padding-right: 5px;
+            }
         }
 
         .container_buttons {

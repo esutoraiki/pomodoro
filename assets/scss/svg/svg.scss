@@ -2,11 +2,46 @@
 
 .gear {
     &:before {
+        @include transition(transform $t5);
+        @include transform(rotate(0deg));
         @include icon_svg(
             gear,
             $v3, $v3,
             $c7
         );
         content: "";
+    }
+
+    &:hover {
+        &:before {
+            @include transition(transform $t5);
+            @include transform(rotate(250deg));
+            @include icon_svg(
+                gear,
+                $v3, $v3,
+                $c1
+            );
+        }
+    }
+}
+
+.check {
+    &:before {
+        @include icon_svg(
+            check,
+            $v3, $v3,
+            $c7
+        );
+        content: "";
+    }
+
+    &:hover {
+        &:before {
+            @include icon_svg(
+                check,
+                $v3, $v3,
+                $c1
+            );
+        }
     }
 }

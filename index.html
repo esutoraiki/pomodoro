@@ -40,12 +40,16 @@
 
     <body class="pomodoro_page">
         <div class="container_pomodoro">
-            <div class="pomodoro">
+            <div
+                id="pomodoro"
+                class="pomodoro"
+            >
                 <div class="timer">
                     <p
                         id="minutes"
                         class="minutes"
-                        contenteditable="true"
+                        contenteditable="false"
+                        inputmode="decimal"
                     >
                         15
                     </p>
@@ -53,7 +57,8 @@
                     <p
                         id="seconds"
                         class="seconds"
-                        contenteditable="true"
+                        contenteditable="false"
+                        inputmode="decimal"
                     >
                         00
                     </p>

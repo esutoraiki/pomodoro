@@ -17,6 +17,10 @@
 %txt2 {
     @include font(szrem(100), $f1, 400, normal, 0.8);
     @include text(center, uppercase);
+
+    @include brp($b7) {
+        font-size: clamp(szrem(30), 6.54vw, szrem(50));
+    }
 }
 
 %txt3 {

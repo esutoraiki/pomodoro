@@ -1,36 +1,29 @@
-# ANOTACIONES PARA DEVS
+# Pomodoro Advent of JavaScript, CSS
 
-Dentro de este repositorio encontramos los siguientes proyectos:
+In this project, we're creating a Pomodoro timer.
 
-- NOMBRE DEL PROYECTO
+For this pomodoro an npm package called sqhtml was used, which is my authorship.
 
-Los proyectos dentro de este repositorio se pueden ejecutar directamente en el navegador, en caso de que no vea correctamente el proyecto por lo general es solo **cambiar la ruta o rutas presentes en la etiqueta base** dentro del html
+## Develop
 
-### Ejemplo de base:
+### Install
 
-```
-<base href="assets/">
-```
-La etiqueta base debe llevar la ruta relativa o absoluta de los assets
+in order to install this project for editing use the following commands in terminal:
 
-### URLS para pruebas
-http://rutadelproyectodev
-
-### URLS para producción
-http://rutadelproyectoprod
-
-## FRONT-END
-### Instalación
-La parte de interfaces (Estilos) se corre a través de **gulp**, por ende es necesario hacer la instalación de los paquetes establecidos en una terminal con soporte de **npm** por medio del comando:
-
-```
-// Verificar que tengamos npm
-npm -v
+```bash
 npm install
 ```
-### Uso
-Si deseamos hacer cambios en la interface prenderemos nuestra consola, nos ubicaremos en la ruta base del proyecto y usaremos el siguiente comando:
 
+If we want to make changes, we start the console, we will locate ourselves in the root of the project and we will use the following command:
+
+```bash
+nodemon --ext html,js,css,scss ./config/serve.js
 ```
-gulp
+
+And in another terminal we execute
+
+```bash
+gulp -browser -sync
 ```
+
+THX

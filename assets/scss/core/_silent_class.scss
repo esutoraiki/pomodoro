@@ -6,12 +6,22 @@
 
     &[contenteditable="true"] {
         @include user-select(text);
-        border-bottom: 1px dashed $c1;
+        @include animation(blinking $t7 infinite);
     }
 
     @include brp($b7) {
-        font-size: clamp(szrem(114), 25.52vw, szrem(196));
+        font-size: clamp(szrem(78), 25.52vw, szrem(196));
     }
+}
+
+%txt2 {
+    @include font(szrem(100), $f1, 400, normal, 0.8);
+    @include text(center, uppercase);
+}
+
+%txt3 {
+    @include font(szrem(18), $f1, 400, normal, 0.8);
+    @include text(center, uppercase);
 }
 
 //-----------------------------------

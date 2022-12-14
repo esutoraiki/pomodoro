@@ -4,6 +4,7 @@
     let
         original_time = 0,
         total_time = 0,
+        percentage = 100,
         timer = null
     ;
 
@@ -13,15 +14,42 @@
         s3 = document.getElementById("setting"),
         s4 = document.getElementById("pomodoro"),
         s5 = document.getElementById("start_stop"),
+        s6 = document.getElementById("stop_alarm"),
+        s7 = document.getElementById("percentage"),
+        s8 = s7.querySelector(".circle"),
 
         c1 = "edit",
         c2 = "gear",
         c3 = "check",
         c4 = "start",
+        c5 = "finish",
+        c6 = "high",
+        c7 = "medium",
+        c8 = "low",
+
+        l1 = [c6, c7, c8],
 
         e1 = new RegExp("^[0-9]{1,2}$"),
 
+        alarm = document.getElementById("alarm"),
+
         NSPomodoro = (function () {
+            function animation_stroke() {
+                s8.setAttribute("stroke-dasharray", percentage + " 100");
+
+                for (let item of l1) {
+                    s8.classList.remove(item);
+                }
+
+                if (percentage > 50) {
+                    s8.classList.add(c6);
+                } else if (percentage > 20) {
+                    s8.classList.add(c7);
+                } else {
+                    s8.classList.add(c8);
+                }
+
+            }
             function switch_ss(state = true) {
                 if (state) {
                     s4.classList.remove(c4);
@@ -142,18 +170,41 @@
                 },
 
                 star_timer: function () {
+                    s8.setAttribute("stroke-dasharray", percentage + " 100");
                     timer = setInterval(function () {
                         change_display();
 
                         if (total_time >= 0) {
                             total_time--;
+                            percentage = Math.round((total_time * 100) / original_time);
+                            percentage = (percentage >= 0)
+                                ? percentage
+                                : 0;
+
+                            animation_stroke();
                         } else {
                             clearInterval(timer);
-                            alert("muajajaja");
-                            change_display(original_time);
-                            switch_ss();
+                            NSPomodoro.finish_timer();
                         }
                     }, 985);
+                },
+
+                finish_timer: function () {
+                    change_display(original_time);
+                    switch_ss();
+                    alarm.play();
+                    alarm.loop = true;
+                    s4.classList.add(c5);
+                    percentage = 100
+                    s8.setAttribute("stroke-dasharray", percentage + " 100");
+                },
+
+                stop_alarm: function () {
+                    s6.addEventListener("click", function () {
+                        alarm.pause();
+                        s4.classList.remove(c5);
+                        animation_stroke();
+                    });
                 }
             };
         }())
@@ -163,5 +214,6 @@
         NSPomodoro.initial();
         NSPomodoro.setting();
         NSPomodoro.start_stop();
+        NSPomodoro.stop_alarm();
     });
 }());

@@ -40,85 +40,184 @@
             $sha2,
             $sha3
         ));
-        background-image: radial-gradient($grad1);
+        background-image: $grad1;
         overflow: hidden;
 
-        .timer {
-            @include center-flex-row;
-            @include gap(10px);
+        &.finish {
+            .state_1 {
+                @include transition($tra1);
+                @include transform(translateX(500px));
+                @include filter(blur(8px));
+                z-index: 1;
 
-            .minutes {
-                @extend %txt1;
-                padding-left: 5px;
-            }
-
-            .separator {
-                @extend %txt1;
-                @include position(relative, -20px);
-            }
-
-            .seconds {
-                @extend %txt1;
-                padding-right: 5px;
-            }
-        }
-
-        .container_buttons {
-            @include position(absolute, 60px, 50%, bottom);
-            @include transform(translateX(-50%));
-            @include align-items(center);
-            @include flex-direction(column);
-            @include gap(20px);
-            @include flex;
-
-            @include brp($b7) {
-                @include gap(3.60vw);
-                bottom: 7.81vw;
-            }
-
-            .start_stop {
-                all: initial;
-                @include transition(color $t5);
-                @include font(
-                    szrem(15),
-                    $f2,
-                    700
-                );
-                @include text(center, uppercase);
-                letter-spacing: 0.5rem;
-                cursor: pointer;
-                color: $c1;
-
-                @include brp($b7) {
-                    @debug bp((value: 15, initial_base: 768));
-                    font-size: clamp(12px, 1.95vw, 15px);
+                .container_buttons {
+                    opacity: 0;
                 }
+            }
 
-                &:hover {
-                    @include transition(color $t5);
-                    color: $c8;
-                }
+            .state_2 {
+                @include transition($tra2);
+                @include transform(none);
+                @include flex;
+                opacity: 1;
+                z-index: 2;
 
-                &:disabled {
-                    color: $c4;
-                    cursor: default;
-                }
+                .stop_alarm {
+                    @include transition($tra1);
+                    @include transform(
+                        translateX(0)
+                        scale(1)
+                    );
+                    @include filter(none);
 
-                &.start {
                     &:hover {
-                        @include transition(color $t5);
-                        color: $c9;
+                        @include transition($tra3);
+                        @include transform(
+                            translateX(0)
+                            scale(1.2)
+                        );
                     }
                 }
             }
+        }
 
-            .setting {
-                all: initial;
-                @include ht;
-                @include position;
-                @include whs($v3);
-                cursor: pointer;
+        .percentage {
+            @include position(absolute);
+            @include whs(100%);
+            z-index: 2;
+
+            .circle {
+                @include transition(all $t5);
+                fill: $c0;
+
+                &.high { stroke: $c8; }
+                &.medium { stroke: $c10; }
+                &.low { stroke: $c9; }
             }
+        }
+
+        .state_2 {
+            @include transition($tra2);
+            @include center-flex-column;
+            @include position(absolute);
+            @include border-radius(50%);
+            @include whs(100%);
+            background-image: $grad2;
+            z-index: 1;
+            opacity: 0;
+
+            .stop_alarm {
+                all: initial;
+                @include whs(100%);
+                @include center-flex-column;
+                @include transition($tra1);
+                @include transform(translateX(-500px));
+                @include filter(blur(8px));
+                cursor: pointer;
+
+                .title {
+                    @extend %txt2;
+                    color: $c1;
+                }
+
+                .description{
+                    @extend %txt3;
+                    color: $c1;
+                }
+            }
+        }
+
+        .state_1 {
+            @include position;
+            @include center-flex-column;
+            @include whs(100%);
+            @include transition($tra1);
+            @include transform(none);
+            @include filter(none);
+            z-index: 2;
+
+            .timer {
+                @include center-flex-row;
+                @include gap(10px);
+
+                .minutes {
+                    @extend %txt1;
+                    padding-left: 5px;
+                }
+
+                .separator {
+                    @extend %txt1;
+                    @include position(relative, -20px);
+
+                    @include brp($b7) {
+                        top: -2.60vw;
+                    }
+                }
+
+                .seconds {
+                    @extend %txt1;
+                    padding-right: 5px;
+                }
+            }
+
+            .container_buttons {
+                @include position(absolute, 60px, 50%, bottom);
+                @include transform(translateX(-50%));
+                @include align-items(center);
+                @include flex-direction(column);
+                @include gap(20px);
+                @include flex;
+                opacity: 1;
+
+                @include brp($b7) {
+                    @include gap(3.60vw);
+                    bottom: 7.81vw;
+                }
+
+                .start_stop {
+                    all: initial;
+                    @include transition(color $t5);
+                    @include font(
+                        szrem(15),
+                        $f2,
+                        700
+                    );
+                    @include text(center, uppercase);
+                    letter-spacing: 0.5rem;
+                    cursor: pointer;
+                    color: $c1;
+
+                    @include brp($b7) {
+                        font-size: clamp(12px, 1.95vw, 15px);
+                    }
+
+                    &:hover {
+                        @include transition(color $t5);
+                        color: $c8;
+                    }
+
+                    &:disabled {
+                        color: $c4;
+                        cursor: default;
+                    }
+
+                    &.start {
+                        &:hover {
+                            @include transition(color $t5);
+                            color: $c9;
+                        }
+                    }
+                }
+
+                .setting {
+                    all: initial;
+                    @include ht;
+                    @include position;
+                    @include whs($v3);
+                    cursor: pointer;
+                }
+            }
+
         }
     }
 }

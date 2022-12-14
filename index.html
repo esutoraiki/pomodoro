@@ -39,44 +39,80 @@
     </head>
 
     <body class="pomodoro_page">
+        <audio id="alarm">
+            <source id="ogg" src="mp3/1.ogg" type="audio/ogg">
+            <source id="mp3" src="mp3/1.mp3" type="audio/mp3">
+        </audio>
+
         <div class="container_pomodoro">
             <div
                 id="pomodoro"
                 class="pomodoro"
             >
-                <div class="timer">
-                    <p
-                        id="minutes"
-                        class="minutes"
-                        contenteditable="false"
-                        inputmode="decimal"
-                    >
-                        15
-                    </p>
-                    <p class="separator">:</p>
-                    <p
-                        id="seconds"
-                        class="seconds"
-                        contenteditable="false"
-                        inputmode="decimal"
-                    >
-                        00
-                    </p>
+                <svg
+                    class="percentage"
+                    id="percentage"
+                >
+                    <circle
+                        cx="50%"
+                        cy="50%"
+                        r="50%"
+                        class="circle high"
+                        stroke-width="15px"
+                        pathLength="100"
+                ></circle>
+                </svg>
+
+                <div
+                    class="state_1"
+                    id="state_1"
+                >
+                    <div class="timer">
+                        <p
+                            id="minutes"
+                            class="minutes"
+                            contenteditable="false"
+                            inputmode="decimal"
+                            >
+                            25
+                        </p>
+                        <p class="separator">:</p>
+                        <p
+                            id="seconds"
+                            class="seconds"
+                            contenteditable="false"
+                            inputmode="decimal"
+                            >
+                            00
+                        </p>
+                    </div>
+
+                    <div class="container_buttons">
+                        <button
+                            class="start_stop"
+                            id="start_stop"
+                        >
+                            start
+                        </button>
+
+                        <button
+                            class="setting gear"
+                            id="setting"
+                        >
+                            setting
+                        </button>
+                    </div>
                 </div>
-
-                <div class="container_buttons">
+                <div
+                    id="state_2"
+                    class="state_2"
+                >
                     <button
-                        class="start_stop"
-                        id="start_stop"
-                        >
-                        start
-                    </button>
-
-                    <button
-                        class="setting gear"
-                        id="setting"
-                        >
-                        setting
+                        class="stop_alarm"
+                        id="stop_alarm"
+                    >
+                        <h2 class="title">Time's up!'</h2>
+                        <p class="description">Click to the stop alarm</p>
                     </button>
                 </div>
             </div>

@@ -1,6 +1,11 @@
 //-----------------------------------
 //Keyframes
 //-----------------------------------
+@include keyframes(blinking) {
+    0% { border-bottom: 1px dashed $c0; }
+    50% { border-bottom: 1px dashed $c1; }
+    100% { border-bottom: 1px dashed $c0; }
+}
 
 //-----------------------------------
 //End Keyframes

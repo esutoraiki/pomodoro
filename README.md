@@ -4,6 +4,10 @@ In this project, we're creating a Pomodoro timer.
 
 For this pomodoro an npm package called sqhtml was used, which is my authorship.
 
+## URL:
+
+https://esutoraiki.github.io/pomodoro/
+
 ## Develop
 
 ### Install

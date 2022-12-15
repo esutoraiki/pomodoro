@@ -1,10 +1,12 @@
 # Pomodoro Advent of JavaScript, CSS
 
-In this project, we're creating a Pomodoro timer.
+In this project, we're creating a Pomodoro timer. 
+
+Made for https://www.adventofcss.com/i and https://www.adventofjs.com/
 
 For this pomodoro an npm package called sqhtml was used, which is my authorship.
 
-## URL:
+## Live Demo:
 
 https://esutoraiki.github.io/pomodoro/
 
